@@ -49,7 +49,9 @@ export function AdminDeleteCourseForm({
       </button>
       {isBlocked ? (
         <p className="text-xs text-ink/55">
-          {enrollmentCount} inscrição(ões). Exclusão bloqueada.
+          {enrollmentCount === 1
+            ? "1 inscrição. Exclusão bloqueada."
+            : `${enrollmentCount} inscrições. Exclusão bloqueada.`}
         </p>
       ) : null}
       {state.message ? (
