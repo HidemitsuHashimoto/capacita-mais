@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import type { User } from "@prisma/client";
+import type { User } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 import {
   SESSION_COOKIE,
