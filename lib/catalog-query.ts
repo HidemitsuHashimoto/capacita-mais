@@ -1,4 +1,4 @@
-import type { Course, Prisma } from "@prisma/client";
+import type { Course, Prisma } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 
 export type CatalogQueryInput = {

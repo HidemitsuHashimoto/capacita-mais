@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import bcrypt from "bcryptjs";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@/generated/prisma/client";
 import type { ActionResult } from "@/lib/action-result";
 import {
   clearSessionCookie,

@@ -1,5 +1,5 @@
 import { randomBytes } from "crypto";
-import type { Certificate } from "@prisma/client";
+import type { Certificate } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 
 export function createCertificateCode(): string {
