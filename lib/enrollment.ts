@@ -75,6 +75,13 @@ export async function enrollUserInCourse(
   }
 }
 
+export function computeRemainingSeats(
+  maxSeats: number,
+  enrolledCount: number,
+): number {
+  return Math.max(0, maxSeats - enrolledCount);
+}
+
 export async function countRemainingSeats(courseId: string): Promise<number> {
   const course = await prisma.course.findUnique({
     where: { id: courseId },
@@ -86,7 +93,7 @@ export async function countRemainingSeats(courseId: string): Promise<number> {
   const enrolledCount = await prisma.enrollment.count({
     where: { courseId },
   });
-  return Math.max(0, course.maxSeats - enrolledCount);
+  return computeRemainingSeats(course.maxSeats, enrolledCount);
 }
 
 export async function findEnrollmentForUser(input: {

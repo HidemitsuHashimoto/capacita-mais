@@ -102,11 +102,13 @@ export default async function CourseDetailPage({
               <p className="mt-4 text-sm text-forest">
                 Você já avaliou este curso com {existingReview.rating} estrelas.
               </p>
-            ) : (
-              <div className="mt-4">
-                <ReviewForm slug={course.slug} />
-              </div>
-            )}
+            ) : null}
+            <div className="mt-4">
+              <ReviewForm
+                slug={course.slug}
+                savedRating={existingReview?.rating}
+              />
+            </div>
           </section>
         ) : null}
       </article>
