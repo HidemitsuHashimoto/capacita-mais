@@ -1,4 +1,4 @@
-import type { Certificate, Course, Enrollment, Lesson } from "@prisma/client";
+import type { Certificate, Course, Enrollment, Lesson } from "@/generated/prisma/client";
 import { issueCertificateIfComplete } from "@/lib/certificate";
 import { prisma } from "@/lib/prisma";
 

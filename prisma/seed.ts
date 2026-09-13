@@ -1,7 +1,16 @@
-import { PrismaClient } from "@prisma/client";
+import "dotenv/config";
+import { PrismaPg } from "@prisma/adapter-pg";
 import bcrypt from "bcryptjs";
+import { PrismaClient } from "../generated/prisma/client";
 
-const prisma = new PrismaClient();
+const connectionString = process.env.PRISMA_DATABASE_URL;
+if (!connectionString) {
+  throw new Error("PRISMA_DATABASE_URL is not set.");
+}
+
+const prisma = new PrismaClient({
+  adapter: new PrismaPg({ connectionString }),
+});
 const BCRYPT_COST = 10;
 
 type LessonSeed = {

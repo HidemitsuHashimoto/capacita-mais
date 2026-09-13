@@ -1,5 +1,5 @@
-import { Prisma } from "@prisma/client";
-import type { Enrollment } from "@prisma/client";
+import { Prisma } from "@/generated/prisma/client";
+import type { Enrollment } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 
 export class EnrollmentError extends Error {

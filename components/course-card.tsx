@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Course } from "@prisma/client";
+import type { Course } from "@/generated/prisma/client";
 import { formatSeatsLabel, formatWorkload } from "@/lib/format";
 
 type CourseCardProps = {
