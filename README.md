@@ -41,6 +41,8 @@ Não commite o arquivo `.env`.
 
 Ana não está inscrita no curso demonstração **Primeiros passos para empreender** (`/courses/primeiros-passos-empreender`). Esse é o caminho feliz: entrar, inscrever, concluir as 2 aulas e emitir o certificado.
 
+Entre com a conta Admin e abra `/admin` para cadastrar, editar e excluir cursos e aulas. O link **Admin** no cabeçalho só aparece para quem tem perfil de administrador.
+
 ## Scripts
 
 - `npm run dev` — servidor de desenvolvimento

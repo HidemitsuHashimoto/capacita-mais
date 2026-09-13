@@ -24,6 +24,11 @@ export async function SiteHeader(): Promise<React.ReactElement> {
           </Link>
           {user ? (
             <>
+              {user.role === "ADMIN" ? (
+                <Link href="/admin" className="text-ink/80 hover:text-forest">
+                  Admin
+                </Link>
+              ) : null}
               <Link href="/me/courses" className="text-ink/80 hover:text-forest">
                 Meus cursos
               </Link>

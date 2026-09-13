@@ -31,6 +31,27 @@ export async function requireSessionUser(): Promise<User> {
   return user;
 }
 
+export async function requireAdminUser(): Promise<User> {
+  const user = await requireSessionUser();
+  if (user.role !== "ADMIN") {
+    redirect("/catalog");
+  }
+  return user;
+}
+
+export async function authorizeAdminAction(): Promise<
+  { ok: true; user: User } | { ok: false; message: string }
+> {
+  const user = await readSessionUser();
+  if (!user) {
+    return { ok: false, message: "Sessão expirada. Entre novamente." };
+  }
+  if (user.role !== "ADMIN") {
+    return { ok: false, message: "Acesso restrito a administradores." };
+  }
+  return { ok: true, user };
+}
+
 export async function writeSessionCookie(input: {
   userId: string;
   role: SessionRole;

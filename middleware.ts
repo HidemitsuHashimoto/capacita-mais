@@ -19,9 +19,21 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
     response.cookies.delete(SESSION_COOKIE);
     return response;
   }
+  if (
+    request.nextUrl.pathname.startsWith("/admin") &&
+    session.role !== "ADMIN"
+  ) {
+    return NextResponse.redirect(new URL("/catalog", request.url));
+  }
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/me/:path*", "/learn/:path*", "/certificates/:path*"],
+  matcher: [
+    "/me/:path*",
+    "/learn/:path*",
+    "/certificates/:path*",
+    "/admin",
+    "/admin/:path*",
+  ],
 };
