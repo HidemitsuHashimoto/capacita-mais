@@ -1,9 +1,9 @@
 import Link from "next/link";
-import type { Course } from "@/generated/prisma/client";
+import type { CatalogCourse } from "@/lib/catalog-query";
 import { formatSeatsLabel, formatWorkload } from "@/lib/format";
 
 type CourseCardProps = {
-  course: Course;
+  course: CatalogCourse;
 };
 
 export function CourseCard({ course }: CourseCardProps): React.ReactElement {
@@ -40,7 +40,7 @@ export function CourseCard({ course }: CourseCardProps): React.ReactElement {
         <div>
           <dt className="text-ink/50">Vagas</dt>
           <dd className="font-medium">
-            {formatSeatsLabel(course.listedSeatsRemaining)}
+            {formatSeatsLabel(course.remainingSeats)}
           </dd>
         </div>
       </dl>

@@ -16,7 +16,6 @@ export async function updateProfileAction(
   const name = String(formData.get("name") ?? "").trim();
   const phone = String(formData.get("phone") ?? "").trim();
   const isPwd = formData.get("isPwd") === "on";
-  void phone;
   if (!name) {
     return { ok: false, message: "Informe o nome completo." };
   }
@@ -24,6 +23,7 @@ export async function updateProfileAction(
     where: { id: user.id },
     data: {
       name,
+      phone: phone || null,
       isPwd,
     },
   });

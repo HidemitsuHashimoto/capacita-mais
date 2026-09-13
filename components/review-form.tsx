@@ -6,9 +6,13 @@ import { emptyActionResult } from "@/lib/action-result";
 
 type ReviewFormProps = {
   slug: string;
+  savedRating?: number;
 };
 
-export function ReviewForm({ slug }: ReviewFormProps): React.ReactElement {
+export function ReviewForm({
+  slug,
+  savedRating,
+}: ReviewFormProps): React.ReactElement {
   const [state, action, isPending] = useActionState(
     submitReviewAction,
     emptyActionResult,
@@ -25,6 +29,7 @@ export function ReviewForm({ slug }: ReviewFormProps): React.ReactElement {
                 type="radio"
                 name="rating"
                 value={rating}
+                defaultChecked={savedRating === rating}
                 required
                 className="accent-sun"
               />
